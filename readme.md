@@ -4,11 +4,28 @@
 都是哪些命令：
 
 docker exec -it diagnostic bash
+
 find / -name createdump
+
 /usr/share/dotnet/shared/Microsoft.NETCore.App/3.1.10/createdump 1 （如果容器内只有一个应用，一般PID默认为1，也可以使用top命令来查看PID）
+
 docker cp 6b6f0a7ebe10:/tmp/coredump.1 /mnt/dumpfile/coredump.1 (window /dumfile/coredump.1 会在C盘 dumpfile 文件夹)
+
 clrstack （调用堆栈信息）
+
 syncblk （分析死锁）
+
+Owning Thread Info列下面有3个子列，第一列是地址，第二列是操作系统线程 ID，第三列是线程索引
+
+setthread 线程索引
+
+ 分析内存泄漏
+
+dumpheap -stat   -min [byte]可选参数
+
+dumpheap -mt 00007f61876a0f90
+
+gcroot -all 00007fcfabc378d8   
 
 ---
 languages:
