@@ -1,3 +1,15 @@
+主要参考的是这个[文章](https://www.cnblogs.com/wu_u/p/14109333.html)的内容
+比官网多了docker 相关的内容。
+
+都是哪些命令：
+
+docker exec -it diagnostic bash
+find / -name createdump
+/usr/share/dotnet/shared/Microsoft.NETCore.App/3.1.10/createdump 1 （如果容器内只有一个应用，一般PID默认为1，也可以使用top命令来查看PID）
+docker cp 6b6f0a7ebe10:/tmp/coredump.1 /mnt/dumpfile/coredump.1 (window /dumfile/coredump.1 会在C盘 dumpfile 文件夹)
+clrstack （调用堆栈信息）
+syncblk （分析死锁）
+
 ---
 languages:
 - csharp
